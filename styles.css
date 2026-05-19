@@ -1,0 +1,432 @@
+/* =============================================
+   USER.CSS - CLEAN MINIMALIST STYLE
+   Absensi IT Club • Senada dengan Admin Panel
+   ============================================= */
+
+/* === VARIABEL === */
+:root {
+    --primary: #4361ee;
+    --primary-light: #4895ef;
+    --primary-dark: #3a56d4;
+    --success: #06d6a0;
+    --danger: #ef476f;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --light-gray: #f8fafc;
+    --border-color: #e2e8f0;
+    --border-radius: 16px;
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    --transition: all 0.2s ease;
+}
+
+/* === RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f1f5f9;
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+}
+
+/* === CONTAINER UTAMA === */
+.user-container {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 440px;
+    padding: 32px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* === HEADER === */
+.header-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-badge {
+    width: 56px;
+    height: 56px;
+    background: var(--primary);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.15);
+}
+
+.logo-badge i {
+    font-size: 28px;
+    color: white;
+}
+
+.header-section h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+}
+
+.subtitle {
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* === TOKEN SECTION === */
+.token-section {
+    background: var(--light-gray);
+    padding: 16px 18px;
+    border-radius: 14px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid var(--border-color);
+}
+
+.token-icon {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+}
+
+.token-icon i {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.token-input-wrapper {
+    flex: 1;
+}
+
+.token-input-wrapper label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+
+#tokenUser {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: white;
+    color: var(--dark);
+    transition: var(--transition);
+    font-family: 'SF Mono', 'Courier New', monospace;
+}
+
+#tokenUser:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+#tokenUser::placeholder {
+    letter-spacing: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.token-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 6px;
+}
+
+.token-status i {
+    font-size: 8px;
+    color: #fbbf24;
+}
+
+/* === FORM SECTION === */
+.form-section {
+    margin-bottom: 24px;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.input-field label i {
+    color: var(--primary);
+    width: 18px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 13px 38px 13px 15px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 15px;
+    background: white;
+    transition: var(--transition);
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.08);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#kelas {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 15px;
+    background: var(--light-gray);
+    color: var(--dark);
+    font-weight: 500;
+    cursor: default;
+}
+
+/* === SIGNATURE SECTION === */
+.signature-section {
+    margin-top: 8px;
+}
+
+.signature-section label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.signature-section label i {
+    color: var(--primary);
+    width: 18px;
+}
+
+.canvas-wrapper {
+    position: relative;
+    border: 1.5px dashed #cbd5e1;
+    background: #fafbfc;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.canvas-wrapper:hover {
+    border-color: var(--primary);
+    background: white;
+}
+
+#signature-pad {
+    width: 100%;
+    height: 170px;
+    display: block;
+    touch-action: none;
+    cursor: crosshair;
+    position: relative;
+    z-index: 2;
+}
+
+.canvas-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #94a3b8;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.canvas-placeholder i {
+    font-size: 28px;
+    opacity: 0.5;
+}
+
+.canvas-placeholder span {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.clear-btn {
+    background: transparent;
+    color: var(--gray);
+    border: 1px solid var(--border-color);
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.clear-btn:hover {
+    background: #fef2f2;
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.clear-btn i {
+    font-size: 12px;
+}
+
+/* === ACTION BUTTONS === */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.btn-cancel,
+.btn-submit {
+    flex: 1;
+    padding: 13px 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-cancel {
+    background: white;
+    color: var(--gray);
+    border: 1.5px solid var(--border-color);
+}
+
+.btn-cancel:hover {
+    background: var(--light-gray);
+    border-color: #cbd5e1;
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.15);
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+}
+
+.btn-submit:active,
+.btn-cancel:active {
+    transform: scale(0.98);
+}
+
+/* === FOOTER === */
+.footer-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.footer-note i {
+    color: var(--success);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .user-container {
+        padding: 24px 18px;
+    }
+
+    .header-section h1 {
+        font-size: 22px;
+    }
+
+    .token-section {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .token-input-wrapper {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    #signature-pad {
+        height: 150px;
+    }
+}
