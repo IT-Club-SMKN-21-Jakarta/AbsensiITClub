@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap');
+
 /* =============================================
-   USER.CSS - CLEAN MINIMALIST STYLE
-   Absensi IT Club • Senada dengan Admin Panel
+   GLASSMORPHISM X NEO-BRUTALISM THEME
+   Absensi IT Club • Redesign
    ============================================= */
 
-/* === VARIABEL === */
 :root {
-    --primary: #4361ee;
-    --primary-light: #4895ef;
-    --primary-dark: #3a56d4;
-    --success: #06d6a0;
-    --danger: #ef476f;
-    --dark: #1e293b;
-    --gray: #64748b;
-    --light-gray: #f8fafc;
-    --border-color: #e2e8f0;
-    --border-radius: 16px;
-    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-    --transition: all 0.2s ease;
+    --primary: #a78bfa;
+    --primary-glow: rgba(167, 139, 250, 0.85);
+    --success: #34d399;
+    --success-glow: rgba(52, 211, 153, 0.85);
+    --danger: #f87171;
+    --danger-glow: rgba(248, 113, 113, 0.85);
+    --dark: #000000;
+    --bg-page: #e0f2fe;
+    
+    /* Neo-Brutalism Shadows */
+    --neo-shadow: 10px 10px 0px #000000;
+    --neo-shadow-btn: 5px 5px 0px #000000;
+    
+    --transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* === RESET === */
@@ -27,10 +30,18 @@
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #f1f5f9;
+    font-family: 'Lexend', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-page);
+    /* Vibrant mesh gradient in background to highlight the glass blur */
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(167, 139, 250, 0.45) 0px, transparent 50%), 
+        radial-gradient(at 90% 10%, rgba(244, 63, 94, 0.35) 0px, transparent 50%), 
+        radial-gradient(at 50% 80%, rgba(56, 189, 248, 0.45) 0px, transparent 50%),
+        radial-gradient(at 80% 90%, rgba(253, 224, 71, 0.35) 0px, transparent 50%);
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
-    padding: 24px;
+    padding: 32px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +50,17 @@ body {
 
 /* === CONTAINER UTAMA === */
 .user-container {
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 4px solid var(--dark);
+    box-shadow: var(--neo-shadow);
     width: 100%;
     max-width: 440px;
-    padding: 32px 28px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* === HEADER === */
@@ -55,90 +70,104 @@ body {
 }
 
 .logo-badge {
-    width: 56px;
-    height: 56px;
-    background: var(--primary);
-    border-radius: 14px;
+    width: 68px;
+    height: 68px;
+    background: rgba(167, 139, 250, 0.55);
+    backdrop-filter: blur(5px);
+    border: 3.5px solid var(--dark);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 16px;
-    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.15);
+    box-shadow: 4px 4px 0px var(--dark);
 }
 
 .logo-badge i {
-    font-size: 28px;
-    color: white;
+    font-size: 32px;
+    color: var(--dark);
 }
 
 .header-section h1 {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: 900;
     color: var(--dark);
-    margin-bottom: 6px;
-    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
 }
 
 .subtitle {
-    color: var(--gray);
+    color: var(--dark);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 700;
+    background: rgba(254, 240, 138, 0.85); /* Glass-yellow label */
+    backdrop-filter: blur(4px);
+    display: inline-block;
+    padding: 4px 12px;
+    border: 2.5px solid var(--dark);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0px var(--dark);
 }
 
 /* === TOKEN SECTION === */
 .token-section {
-    background: var(--light-gray);
-    padding: 16px 18px;
-    border-radius: 14px;
+    background: rgba(255, 237, 213, 0.45); /* Orange glass */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
     margin-bottom: 28px;
-    display: flex;
+    border: 3.5px solid var(--dark);
+    box-shadow: 4px 4px 0px var(--dark);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 16px;
     align-items: center;
-    gap: 14px;
-    border: 1px solid var(--border-color);
 }
 
 .token-icon {
-    width: 44px;
-    height: 44px;
-    background: white;
+    grid-row: span 2;
+    width: 48px;
+    height: 48px;
+    background: rgba(253, 224, 71, 0.75); /* Yellow glass icon wrapper */
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    border: 1px solid var(--border-color);
+    border: 2.5px solid var(--dark);
+    box-shadow: 2px 2px 0px var(--dark);
 }
 
 .token-icon i {
     font-size: 20px;
-    color: var(--primary);
+    color: var(--dark);
 }
 
 .token-input-wrapper {
-    flex: 1;
+    width: 100%;
 }
 
 .token-input-wrapper label {
     display: block;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-    color: var(--gray);
-    margin-bottom: 6px;
+    color: var(--dark);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
 }
 
 #tokenUser {
     width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid var(--border-color);
+    padding: 10px 12px;
+    border: 2.5px solid var(--dark);
     border-radius: 10px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     color: var(--dark);
     transition: var(--transition);
     font-family: 'SF Mono', 'Courier New', monospace;
@@ -146,29 +175,29 @@ body {
 
 #tokenUser:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 3px 3px 0px var(--primary);
 }
 
 #tokenUser::placeholder {
     letter-spacing: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 13px;
-    color: #94a3b8;
+    color: #4b5563;
 }
 
 .token-status {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 12px;
-    color: var(--gray);
-    margin-top: 6px;
+    font-weight: 700;
+    color: var(--dark);
 }
 
 .token-status i {
     font-size: 8px;
-    color: #fbbf24;
+    color: #d97706;
 }
 
 /* === FORM SECTION === */
@@ -177,22 +206,20 @@ body {
 }
 
 .input-field {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .input-field label {
     display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--dark);
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
 }
 
 .input-field label i {
-    color: var(--primary);
-    width: 18px;
+    margin-right: 6px;
 }
 
 .search-wrapper {
@@ -201,40 +228,41 @@ body {
 
 .search-wrapper input {
     width: 100%;
-    padding: 13px 38px 13px 15px;
-    border: 1.5px solid var(--border-color);
-    border-radius: 12px;
+    padding: 14px 40px 14px 16px;
+    border: 3.5px solid var(--dark);
+    border-radius: 14px;
     font-size: 15px;
-    background: white;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.6);
     transition: var(--transition);
 }
 
 .search-wrapper input:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 4px 4px 0px var(--primary);
 }
 
 .search-icon {
     position: absolute;
-    right: 15px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--gray);
-    font-size: 14px;
+    color: var(--dark);
+    font-size: 16px;
     pointer-events: none;
 }
 
 #kelas {
     width: 100%;
-    padding: 13px 15px;
-    border: 1.5px solid var(--border-color);
-    border-radius: 12px;
+    padding: 14px 16px;
+    border: 3.5px solid var(--dark);
+    border-radius: 14px;
     font-size: 15px;
-    background: var(--light-gray);
-    color: var(--dark);
-    font-weight: 500;
-    cursor: default;
+    background: rgba(241, 245, 249, 0.6);
+    color: #1e293b;
+    font-weight: 700;
+    cursor: not-allowed;
 }
 
 /* === SIGNATURE SECTION === */
@@ -244,37 +272,35 @@ body {
 
 .signature-section label {
     display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--dark);
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
 }
 
 .signature-section label i {
-    color: var(--primary);
-    width: 18px;
+    margin-right: 6px;
 }
 
 .canvas-wrapper {
     position: relative;
-    border: 1.5px dashed #cbd5e1;
-    background: #fafbfc;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    border: 3.5px dashed var(--dark);
+    background: rgba(250, 250, 250, 0.4);
+    border-radius: 16px;
+    margin-bottom: 12px;
     overflow: hidden;
     transition: var(--transition);
 }
 
 .canvas-wrapper:hover {
-    border-color: var(--primary);
-    background: white;
+    background: rgba(255, 255, 255, 0.65);
+    border-style: solid;
 }
 
 #signature-pad {
     width: 100%;
-    height: 170px;
+    height: 180px;
     display: block;
     touch-action: none;
     cursor: crosshair;
@@ -290,96 +316,108 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    color: #94a3b8;
+    gap: 8px;
+    color: var(--dark);
     pointer-events: none;
     z-index: 1;
 }
 
 .canvas-placeholder i {
-    font-size: 28px;
-    opacity: 0.5;
+    font-size: 32px;
+    opacity: 0.7;
 }
 
 .canvas-placeholder span {
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .clear-btn {
-    background: transparent;
-    color: var(--gray);
-    border: 1px solid var(--border-color);
-    padding: 7px 14px;
-    border-radius: 30px;
+    background: rgba(254, 226, 226, 0.6);
+    backdrop-filter: blur(4px);
+    color: var(--dark);
+    border: 3px solid var(--dark);
+    padding: 8px 16px;
+    border-radius: 12px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 800;
     cursor: pointer;
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 8px;
+    box-shadow: 3px 3px 0px var(--dark);
 }
 
 .clear-btn:hover {
-    background: #fef2f2;
-    border-color: var(--danger);
-    color: var(--danger);
+    background: rgba(252, 165, 165, 0.85);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--dark);
 }
 
-.clear-btn i {
-    font-size: 12px;
+.clear-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px var(--dark);
 }
 
 /* === ACTION BUTTONS === */
 .action-buttons {
     display: flex;
-    gap: 12px;
-    margin-top: 28px;
+    gap: 16px;
+    margin-top: 32px;
 }
 
 .btn-cancel,
 .btn-submit {
     flex: 1;
-    padding: 13px 12px;
-    border: none;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
+    padding: 15px 16px;
+    border: 3.5px solid var(--dark);
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 900;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-transform: uppercase;
 }
 
 .btn-cancel {
-    background: white;
-    color: var(--gray);
-    border: 1.5px solid var(--border-color);
+    background: rgba(243, 244, 246, 0.65);
+    backdrop-filter: blur(4px);
+    color: var(--dark);
+    box-shadow: var(--neo-shadow-btn);
 }
 
 .btn-cancel:hover {
-    background: var(--light-gray);
-    border-color: #cbd5e1;
+    background: rgba(229, 231, 230, 0.85);
+    transform: translate(-1.5px, -1.5px);
+    box-shadow: 6.5px 6.5px 0px var(--dark);
+}
+
+.btn-cancel:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px var(--dark);
 }
 
 .btn-submit {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.15);
+    background: var(--primary-glow);
+    backdrop-filter: blur(4px);
+    color: var(--dark);
+    box-shadow: var(--neo-shadow-btn);
 }
 
 .btn-submit:hover {
-    background: var(--primary-dark);
-    box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+    background: rgba(192, 132, 252, 0.95);
+    transform: translate(-1.5px, -1.5px);
+    box-shadow: 6.5px 6.5px 0px var(--dark);
 }
 
-.btn-submit:active,
-.btn-cancel:active {
-    transform: scale(0.98);
+.btn-submit:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px var(--dark);
 }
 
 /* === FOOTER === */
@@ -388,45 +426,45 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border-color);
-    color: var(--gray);
-    font-size: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 3px solid var(--dark);
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .footer-note i {
-    color: var(--success);
+    color: #047857;
+    font-size: 15px;
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 480px) {
     body {
-        padding: 16px;
+        padding: 16px 8px;
     }
 
     .user-container {
-        padding: 24px 18px;
+        padding: 28px 20px;
+        border-radius: 20px;
     }
 
     .header-section h1 {
         font-size: 22px;
     }
 
-    .token-section {
-        flex-direction: column;
-        text-align: left;
+    .action-buttons {
+        flex-direction: column-reverse;
+        gap: 12px;
     }
 
-    .token-input-wrapper {
+    .btn-cancel,
+    .btn-submit {
         width: 100%;
     }
 
-    .action-buttons {
-        flex-direction: column-reverse;
-    }
-
     #signature-pad {
-        height: 150px;
+        height: 160px;
     }
 }
