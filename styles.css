@@ -1,23 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap');
 
 /* =============================================
-   GLASSMORPHISM X NEO-BRUTALISM THEME
+   IT CLUB BRANDING THEME (LOGO-ALIGNED)
    Absensi IT Club • Redesign
    ============================================= */
 
 :root {
-    --primary: #a78bfa;
-    --primary-glow: rgba(167, 139, 250, 0.85);
-    --success: #34d399;
-    --success-glow: rgba(52, 211, 153, 0.85);
-    --danger: #f87171;
-    --danger-glow: rgba(248, 113, 113, 0.85);
-    --dark: #000000;
-    --bg-page: #e0f2fe;
+    /* Brand Colors from Logo */
+    --brand-orange: #f68b1f;      /* Vibrant Orange */
+    --brand-dark: #2d2438;        /* Deep Purple-Black */
+    --brand-light: #ffffff;
+    --brand-bg: #f5f4f2;          /* Warm soft gray-white */
+    --brand-gray: #7a7285;        /* Neutral Slate Gray */
+    --brand-accent: #fdf6ee;      /* Very soft warm tint */
     
-    /* Neo-Brutalism Shadows */
-    --neo-shadow: 10px 10px 0px #000000;
-    --neo-shadow-btn: 5px 5px 0px #000000;
+    --border-width: 3px;
+    --neo-shadow: 8px 8px 0px var(--brand-dark);
+    --neo-shadow-sm: 4px 4px 0px var(--brand-dark);
     
     --transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -31,36 +30,34 @@
 
 body {
     font-family: 'Lexend', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-page);
-    /* Vibrant mesh gradient in background to highlight the glass blur */
+    background-color: var(--brand-bg);
+    /* Double-circle watermark pattern in the background to match logo motif */
     background-image: 
-        radial-gradient(at 10% 20%, rgba(167, 139, 250, 0.45) 0px, transparent 50%), 
-        radial-gradient(at 90% 10%, rgba(244, 63, 94, 0.35) 0px, transparent 50%), 
-        radial-gradient(at 50% 80%, rgba(56, 189, 248, 0.45) 0px, transparent 50%),
-        radial-gradient(at 80% 90%, rgba(253, 224, 71, 0.35) 0px, transparent 50%);
-    background-size: cover;
-    background-attachment: fixed;
+        radial-gradient(circle, transparent 20%, var(--brand-bg) 20%, var(--brand-bg) 80%, transparent 80%, transparent),
+        radial-gradient(circle, transparent 20%, var(--brand-bg) 20%, var(--brand-bg) 80%, transparent 80%, transparent);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
     min-height: 100vh;
-    padding: 32px 16px;
+    padding: 40px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--dark);
+    color: var(--brand-dark);
 }
 
 /* === CONTAINER UTAMA === */
 .user-container {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--brand-light);
     border-radius: 28px;
-    border: 4px solid var(--dark);
+    border: var(--border-width) solid var(--brand-dark);
+    /* Double border effect matching the logo double outline */
+    outline: 2.5px solid var(--brand-dark);
+    outline-offset: 4px;
     box-shadow: var(--neo-shadow);
     width: 100%;
     max-width: 440px;
-    padding: 36px 28px;
-    position: relative;
-    overflow: hidden;
+    padding: 40px 32px;
+    margin: 8px; /* space for outline */
 }
 
 /* === HEADER === */
@@ -70,77 +67,107 @@ body {
 }
 
 .logo-badge {
-    width: 68px;
-    height: 68px;
-    background: rgba(167, 139, 250, 0.55);
-    backdrop-filter: blur(5px);
-    border: 3.5px solid var(--dark);
-    border-radius: 20px;
+    width: 72px;
+    height: 72px;
+    background: var(--brand-light);
+    border: 2px solid var(--brand-dark);
+    outline: 1.5px solid var(--brand-dark);
+    outline-offset: 3px;
+    border-radius: 50%; /* Perfect circle matching the logo outer border */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 16px;
-    box-shadow: 4px 4px 0px var(--dark);
+    margin: 4px auto 20px;
+    box-shadow: 3px 3px 0px var(--brand-dark);
 }
 
-.logo-badge i {
-    font-size: 32px;
-    color: var(--dark);
+/* Stylized Logo Element representation inside the badge */
+.logo-badge-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-badge-inner .it-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--brand-dark);
+    line-height: 1;
+    position: relative;
+}
+
+.logo-badge-inner .it-text::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -1px;
+    width: 7px;
+    height: 7px;
+    background: var(--brand-orange);
+    border-radius: 50%;
+}
+
+.logo-badge-inner .club-text {
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--brand-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
 }
 
 .header-section h1 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 900;
-    color: var(--dark);
+    color: var(--brand-dark);
     margin-bottom: 8px;
     letter-spacing: -0.5px;
     text-transform: uppercase;
 }
 
 .subtitle {
-    color: var(--dark);
-    font-size: 14px;
+    color: var(--brand-dark);
+    font-size: 13px;
     font-weight: 700;
-    background: rgba(254, 240, 138, 0.85); /* Glass-yellow label */
-    backdrop-filter: blur(4px);
+    background: var(--brand-accent);
     display: inline-block;
-    padding: 4px 12px;
-    border: 2.5px solid var(--dark);
-    border-radius: 12px;
-    box-shadow: 3px 3px 0px var(--dark);
+    padding: 5px 14px;
+    border: 2px solid var(--brand-dark);
+    border-radius: 9999px; /* Pill shape */
+    box-shadow: 2px 2px 0px var(--brand-dark);
 }
 
 /* === TOKEN SECTION === */
 .token-section {
-    background: rgba(255, 237, 213, 0.45); /* Orange glass */
-    backdrop-filter: blur(10px);
+    background: var(--brand-accent);
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 28px;
-    border: 3.5px solid var(--dark);
-    box-shadow: 4px 4px 0px var(--dark);
+    border: var(--border-width) solid var(--brand-dark);
+    box-shadow: var(--neo-shadow-sm);
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 10px 16px;
+    gap: 12px 16px;
     align-items: center;
 }
 
 .token-icon {
     grid-row: span 2;
-    width: 48px;
-    height: 48px;
-    background: rgba(253, 224, 71, 0.75); /* Yellow glass icon wrapper */
-    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+    background: var(--brand-orange);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2.5px solid var(--dark);
-    box-shadow: 2px 2px 0px var(--dark);
+    border: 2px solid var(--brand-dark);
+    box-shadow: 2px 2px 0px var(--brand-dark);
 }
 
 .token-icon i {
-    font-size: 20px;
-    color: var(--dark);
+    font-size: 18px;
+    color: var(--brand-light);
 }
 
 .token-input-wrapper {
@@ -152,38 +179,37 @@ body {
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
-    color: var(--dark);
+    color: var(--brand-dark);
     margin-bottom: 4px;
     letter-spacing: 0.5px;
 }
 
 #tokenUser {
     width: 100%;
-    padding: 10px 12px;
-    border: 2.5px solid var(--dark);
-    border-radius: 10px;
+    padding: 10px 14px;
+    border: 2.5px solid var(--brand-dark);
+    border-radius: 9999px; /* Pill Shape */
     font-size: 15px;
     font-weight: 700;
     text-align: center;
     letter-spacing: 3px;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.7);
-    color: var(--dark);
+    background: var(--brand-light);
+    color: var(--brand-dark);
     transition: var(--transition);
     font-family: 'SF Mono', 'Courier New', monospace;
 }
 
 #tokenUser:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 3px 3px 0px var(--primary);
+    box-shadow: 3px 3px 0px var(--brand-orange);
 }
 
 #tokenUser::placeholder {
     letter-spacing: normal;
     font-weight: 600;
-    font-size: 13px;
-    color: #4b5563;
+    font-size: 12px;
+    color: var(--brand-gray);
 }
 
 .token-status {
@@ -192,12 +218,12 @@ body {
     gap: 8px;
     font-size: 12px;
     font-weight: 700;
-    color: var(--dark);
+    color: var(--brand-dark);
 }
 
 .token-status i {
     font-size: 8px;
-    color: #d97706;
+    color: var(--brand-orange);
 }
 
 /* === FORM SECTION === */
@@ -211,15 +237,16 @@ body {
 
 .input-field label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
-    color: var(--dark);
+    color: var(--brand-dark);
     margin-bottom: 8px;
     text-transform: uppercase;
 }
 
 .input-field label i {
     margin-right: 6px;
+    color: var(--brand-orange);
 }
 
 .search-wrapper {
@@ -228,39 +255,39 @@ body {
 
 .search-wrapper input {
     width: 100%;
-    padding: 14px 40px 14px 16px;
-    border: 3.5px solid var(--dark);
-    border-radius: 14px;
-    font-size: 15px;
+    padding: 14px 44px 14px 20px;
+    border: 2.5px solid var(--brand-dark);
+    border-radius: 9999px; /* Pill Shape */
+    font-size: 14px;
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--brand-light);
+    color: var(--brand-dark);
     transition: var(--transition);
 }
 
 .search-wrapper input:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 4px 4px 0px var(--primary);
+    box-shadow: 3px 3px 0px var(--brand-orange);
 }
 
 .search-icon {
     position: absolute;
-    right: 16px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--dark);
+    color: var(--brand-dark);
     font-size: 16px;
     pointer-events: none;
 }
 
 #kelas {
     width: 100%;
-    padding: 14px 16px;
-    border: 3.5px solid var(--dark);
-    border-radius: 14px;
-    font-size: 15px;
-    background: rgba(241, 245, 249, 0.6);
-    color: #1e293b;
+    padding: 14px 20px;
+    border: 2.5px solid var(--brand-dark);
+    border-radius: 9999px; /* Pill Shape */
+    font-size: 14px;
+    background: #f1f0ee;
+    color: var(--brand-gray);
     font-weight: 700;
     cursor: not-allowed;
 }
@@ -272,29 +299,29 @@ body {
 
 .signature-section label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
-    color: var(--dark);
+    color: var(--brand-dark);
     margin-bottom: 8px;
     text-transform: uppercase;
 }
 
 .signature-section label i {
     margin-right: 6px;
+    color: var(--brand-orange);
 }
 
 .canvas-wrapper {
     position: relative;
-    border: 3.5px dashed var(--dark);
-    background: rgba(250, 250, 250, 0.4);
-    border-radius: 16px;
+    border: 2.5px dashed var(--brand-dark);
+    background: var(--brand-light);
+    border-radius: 20px;
     margin-bottom: 12px;
     overflow: hidden;
     transition: var(--transition);
 }
 
 .canvas-wrapper:hover {
-    background: rgba(255, 255, 255, 0.65);
     border-style: solid;
 }
 
@@ -317,28 +344,28 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: var(--dark);
+    color: var(--brand-gray);
     pointer-events: none;
     z-index: 1;
 }
 
 .canvas-placeholder i {
-    font-size: 32px;
-    opacity: 0.7;
+    font-size: 28px;
+    opacity: 0.8;
+    color: var(--brand-dark);
 }
 
 .canvas-placeholder span {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 }
 
 .clear-btn {
-    background: rgba(254, 226, 226, 0.6);
-    backdrop-filter: blur(4px);
-    color: var(--dark);
-    border: 3px solid var(--dark);
-    padding: 8px 16px;
-    border-radius: 12px;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    border: 2px solid var(--brand-dark);
+    padding: 8px 18px;
+    border-radius: 9999px; /* Pill Shape */
     font-size: 12px;
     font-weight: 800;
     cursor: pointer;
@@ -346,18 +373,19 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 3px 3px 0px var(--dark);
+    box-shadow: 2px 2px 0px var(--brand-dark);
 }
 
 .clear-btn:hover {
-    background: rgba(252, 165, 165, 0.85);
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px var(--dark);
+    background: #fef2f2;
+    color: #ef4444;
+    border-color: #ef4444;
+    box-shadow: 3px 3px 0px #ef4444;
 }
 
 .clear-btn:active {
-    transform: translate(3px, 3px);
-    box-shadow: 0px 0px 0px var(--dark);
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px var(--brand-dark);
 }
 
 /* === ACTION BUTTONS === */
@@ -371,9 +399,9 @@ body {
 .btn-submit {
     flex: 1;
     padding: 15px 16px;
-    border: 3.5px solid var(--dark);
-    border-radius: 16px;
-    font-size: 16px;
+    border: var(--border-width) solid var(--brand-dark);
+    border-radius: 9999px; /* Pill Shape */
+    font-size: 15px;
     font-weight: 900;
     cursor: pointer;
     transition: var(--transition);
@@ -385,39 +413,37 @@ body {
 }
 
 .btn-cancel {
-    background: rgba(243, 244, 246, 0.65);
-    backdrop-filter: blur(4px);
-    color: var(--dark);
+    background: var(--brand-light);
+    color: var(--brand-dark);
     box-shadow: var(--neo-shadow-btn);
 }
 
 .btn-cancel:hover {
-    background: rgba(229, 231, 230, 0.85);
+    background: var(--brand-accent);
     transform: translate(-1.5px, -1.5px);
-    box-shadow: 6.5px 6.5px 0px var(--dark);
+    box-shadow: 6.5px 6.5px 0px var(--brand-dark);
 }
 
 .btn-cancel:active {
     transform: translate(5px, 5px);
-    box-shadow: 0px 0px 0px var(--dark);
+    box-shadow: 0px 0px 0px var(--brand-dark);
 }
 
 .btn-submit {
-    background: var(--primary-glow);
-    backdrop-filter: blur(4px);
-    color: var(--dark);
+    background: var(--brand-orange);
+    color: var(--brand-light);
     box-shadow: var(--neo-shadow-btn);
 }
 
 .btn-submit:hover {
-    background: rgba(192, 132, 252, 0.95);
+    background: #f97316; /* Darker orange */
     transform: translate(-1.5px, -1.5px);
-    box-shadow: 6.5px 6.5px 0px var(--dark);
+    box-shadow: 6.5px 6.5px 0px var(--brand-dark);
 }
 
 .btn-submit:active {
     transform: translate(5px, 5px);
-    box-shadow: 0px 0px 0px var(--dark);
+    box-shadow: 0px 0px 0px var(--brand-dark);
 }
 
 /* === FOOTER === */
@@ -428,30 +454,30 @@ body {
     gap: 8px;
     margin-top: 24px;
     padding-top: 20px;
-    border-top: 3px solid var(--dark);
-    color: var(--dark);
-    font-size: 13px;
+    border-top: 2px solid var(--brand-dark);
+    color: var(--brand-gray);
+    font-size: 12px;
     font-weight: 700;
 }
 
 .footer-note i {
-    color: #047857;
-    font-size: 15px;
+    color: var(--brand-orange);
+    font-size: 14px;
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 480px) {
     body {
-        padding: 16px 8px;
+        padding: 24px 8px;
     }
 
     .user-container {
-        padding: 28px 20px;
-        border-radius: 20px;
+        padding: 32px 20px;
+        border-radius: 24px;
     }
 
     .header-section h1 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .action-buttons {
