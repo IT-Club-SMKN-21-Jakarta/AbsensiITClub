@@ -34,22 +34,50 @@ async function loadStudentData() {
         const arrayBuffer = await response.arrayBuffer();
         const workbook = new ExcelJS.Workbook();
         await workbook.xlsx.load(arrayBuffer);
-        const worksheet = workbook.getWorksheet(1);
+
+        // Mengambil worksheet 'JULI' atau sheet terakhir (sheet aktif)
+        let worksheet = workbook.getWorksheet('JULI');
+        if (!worksheet) {
+            worksheet = workbook.worksheets[workbook.worksheets.length - 1];
+        }
         const datalist = document.getElementById('studentList');
 
+        // Kosongkan dulu datalist untuk jaga-jaga
+        datalist.innerHTML = "";
+        dataSiswa = {};
+
         worksheet.eachRow((row, rowNumber) => {
-            if (rowNumber >= 4) {
-                const no = row.getCell(1).text.trim();
-                const nama = row.getCell(2).text.trim();
-                const kelas = row.getCell(3).text.trim();
-                if (no !== "" && nama !== "") {
+            // Mulai membaca dari baris 8 (karena baris 7 adalah HEADER)
+            if (rowNumber >= 8) {
+                const getVal = (colIndex) => {
+                    const cell = row.getCell(colIndex);
+                    if (!cell || cell.value === null || cell.value === undefined) return '';
+
+                    if (typeof cell.value === 'object') {
+                        if (cell.value.result !== undefined) return String(cell.value.result).trim();
+                        if (cell.value.richText) return cell.value.richText.map(t => t.text).join('').trim();
+                        if (cell.value.text !== undefined) return String(cell.value.text).trim();
+                    }
+
+                    return String(cell.text || cell.value || '').trim();
+                };
+
+                const no = getVal(1); // Kolom A (NO)
+                const nama = getVal(2); // Kolom B (NAMA)
+                const kelas = getVal(3); // Kolom C (KELAS)
+
+                // Hanya ambil baris jika Kolom A berisi angka NO (nomor urut siswa) & Nama tidak kosong
+                if (/^\d+$/.test(no) && nama !== "") {
                     dataSiswa[nama] = kelas;
+
                     const option = document.createElement('option');
                     option.value = nama;
                     datalist.appendChild(option);
                 }
             }
         });
+
+        console.log("Data siswa berhasil dimuat:", Object.keys(dataSiswa).length, "siswa.");
     } catch (err) {
         console.error("Gagal load file Excel:", err);
     }
