@@ -129,7 +129,7 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
 
         const { token, createdAt, duration } = tokenSnap.data();
 
-        if (tokenUser !== token) {
+        if (tokenUser.toUpperCase() !== token.toUpperCase()) {
             alert("Token salah!");
             return;
         }
